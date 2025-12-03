@@ -1,15 +1,15 @@
 # app.py - Flask entry. Now enables all API blueprints for full system.
 from flask import Flask, jsonify
 from flask_cors import CORS
-from .config import FLASK_SECRET_KEY
-from .supabase_client import supabase
-from .routes.auth_routes import auth_bp
-from .routes.student_routes import student_bp
-from .routes.faculty_routes import faculty_bp
-from .routes.admin_routes import admin_bp
-from .routes.attendance_routes import attendance_bp
-from .routes.face_routes import face_bp
-from .routes.qr_routes import qr_bp
+from config import FLASK_SECRET_KEY
+from supabase_client import supabase
+from routes.auth_routes import auth_bp
+from routes.student_routes import student_bp
+from routes.faculty_routes import faculty_bp
+from routes.admin_routes import admin_bp
+from routes.attendance_routes import attendance_bp
+from routes.face_routes import face_bp
+from routes.qr_routes import qr_bp
 
 def create_app():
     app = Flask(__name__)
@@ -38,3 +38,4 @@ def create_app():
 if __name__ == "__main__":
     app = create_app()
     app.run(debug=True)
+
