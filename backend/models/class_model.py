@@ -2,7 +2,7 @@
 Handles Classes model for attendance system. Provides CRUD operations and lookups
 for class records using Supabase.
 """
-from ..supabase_client import supabase
+from supabase_client import supabase
 from typing import Optional
 
 def create_class(data: dict) -> dict:
@@ -29,3 +29,4 @@ def delete_class(class_id: str) -> bool:
     """Delete class by id."""
     res = supabase.table("classes").delete().eq("id", class_id).execute()
     return bool(res.data)
+
