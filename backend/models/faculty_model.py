@@ -2,7 +2,7 @@
 Handles Faculty model for the attendance system. Provides CRUD operations and
 lookup helpers for faculty records using Supabase.
 """
-from ..supabase_client import supabase
+from supabase_client import supabase
 from typing import Optional
 
 def create_faculty(data: dict) -> dict:
@@ -34,3 +34,4 @@ def get_faculty_by_email(email: str) -> Optional[dict]:
     """Fetch faculty by email."""
     res = supabase.table("faculty").select("*").eq("email", email).single().execute()
     return res.data if res.data else None
+
