@@ -4,11 +4,11 @@ Handles Authentication endpoints for students, faculty, and admin using Supabase
 /POST /auth/logout: Placeholder; client should clear tokens/sessions
 """
 from flask import Blueprint, request, jsonify
-from ..supabase_client import supabase
-from ..models.student_model import get_student_by_email
-from ..models.faculty_model import get_faculty_by_email
+from supabase_client import supabase
+from models.student_model import get_student_by_email
+from models.faculty_model import get_faculty_by_email
 #from ..models.admin_model import get_admin_by_email  # (If admin table is added)
-from ..config import FLASK_SECRET_KEY
+from config import FLASK_SECRET_KEY
 
 import os
 
@@ -67,3 +67,4 @@ def logout():
     implement token blacklisting (not present here).
     """
     return jsonify({"message": "Logged out (token removed on client)."}), 200
+
