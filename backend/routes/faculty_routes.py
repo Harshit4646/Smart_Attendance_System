@@ -2,9 +2,9 @@
 Routes for faculty: view their classes and attendance.
 """
 from flask import Blueprint, jsonify, request
-from ..models.faculty_model import get_faculty_by_email
-from ..models.class_model import get_all_classes
-from ..models.attendance_model import get_attendance_by_class
+from models.faculty_model import get_faculty_by_email
+from models.class_model import get_all_classes
+from models.attendance_model import get_attendance_by_class
 
 faculty_bp = Blueprint("faculty", __name__, url_prefix="/faculty")
 
@@ -47,3 +47,4 @@ def class_attendance(class_id):
     if date:
         attendance = [a for a in attendance if a['attendance_date'] == date]
     return jsonify({"attendance": attendance})
+
