@@ -2,7 +2,7 @@
 Handles Subjects model for attendance system. Provides CRUD operations and lookups
 for subject records using Supabase.
 """
-from ..supabase_client import supabase
+from supabase_client import supabase
 from typing import Optional
 
 def create_subject(data: dict) -> dict:
@@ -29,3 +29,4 @@ def delete_subject(subject_id: str) -> bool:
     """Delete subject by id."""
     res = supabase.table("subjects").delete().eq("id", subject_id).execute()
     return bool(res.data)
+
