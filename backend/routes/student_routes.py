@@ -2,8 +2,8 @@
 Routes for student self-service: viewing info and attendance.
 """
 from flask import Blueprint, jsonify, request
-from ..models.student_model import get_student_by_email
-from ..models.attendance_model import get_attendance_by_student
+from models.student_model import get_student_by_email
+from models.attendance_model import get_attendance_by_student
 
 student_bp = Blueprint("student", __name__, url_prefix="/students")
 
@@ -46,3 +46,4 @@ def get_attendance():
     student_id = profile['id']
     attendance = get_attendance_by_student(student_id)
     return jsonify({"attendance": attendance})
+
