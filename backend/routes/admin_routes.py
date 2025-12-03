@@ -2,11 +2,11 @@
 Routes for admin module: CRUD for all tables, analytics access.
 """
 from flask import Blueprint, jsonify, request
-from ..models.student_model import create_student, get_all_students, get_student_by_id, update_student, delete_student
-from ..models.faculty_model import create_faculty, get_all_faculty, get_faculty_by_id, update_faculty, delete_faculty
-from ..models.class_model import create_class, get_all_classes, get_class_by_id, update_class, delete_class
-from ..models.subject_model import create_subject, get_all_subjects, get_subject_by_id, update_subject, delete_subject
-from ..models.attendance_model import get_attendance_by_student
+from models.student_model import create_student, get_all_students, get_student_by_id, update_student, delete_student
+from models.faculty_model import create_faculty, get_all_faculty, get_faculty_by_id, update_faculty, delete_faculty
+from models.class_model import create_class, get_all_classes, get_class_by_id, update_class, delete_class
+from models.subject_model import create_subject, get_all_subjects, get_subject_by_id, update_subject, delete_subject
+from models.attendance_model import get_attendance_by_student
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -113,3 +113,4 @@ def analytics():
         "at_risk_count": sum(1 for s in students if 0),  # Stub
     }
     return jsonify({"analytics": data})
+
