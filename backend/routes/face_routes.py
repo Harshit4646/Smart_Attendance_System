@@ -2,8 +2,8 @@
 Face recognition endpoints: registration (student uploads/captures face) and recognition (faculty sends live frame). Store/retrieve embeddings/images from DB. Actual face recognition logic is stubbed.
 """
 from flask import Blueprint, request, jsonify
-from ..models.face_model import register_face_embedding, get_all_faces, get_face_by_student_id
-from ..models.student_model import get_student_by_id
+from models.face_model import register_face_embedding, get_all_faces, get_face_by_student_id
+from models.student_model import get_student_by_id
 from datetime import datetime
 # Placeholder: Actual embedding extraction not implemented
 import numpy as np
@@ -65,3 +65,4 @@ def recognize_face():
         return jsonify({"student": student, "dist": min_dist})
     else:
         return jsonify({"error": "No matching student found."}), 404
+
