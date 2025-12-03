@@ -2,7 +2,7 @@
 Attendance API endpoints: mark attendance, get today's attendance, etc.
 """
 from flask import Blueprint, jsonify, request
-from ..models.attendance_model import mark_attendance, get_attendance_by_student, get_attendance_by_date
+from models.attendance_model import mark_attendance, get_attendance_by_student, get_attendance_by_date
 from datetime import datetime, date
 
 attendance_bp = Blueprint("attendance", __name__, url_prefix="/attendance")
@@ -75,3 +75,4 @@ def get_today():
     today = date.today().isoformat()
     all_today = get_attendance_by_date(today)
     return jsonify({"attendance": all_today})
+
