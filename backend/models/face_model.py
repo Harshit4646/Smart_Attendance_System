@@ -2,7 +2,7 @@
 Handles Face Embeddings model for face-based attendance. Provides helpers
 for storing, fetching, updating, and deleting face embeddings with Supabase.
 """
-from ..supabase_client import supabase
+from supabase_client import supabase
 from typing import Optional, List
 
 def register_face_embedding(data: dict) -> dict:
@@ -29,3 +29,4 @@ def delete_face_by_id(face_id: str) -> bool:
     """Delete face embedding by ID."""
     res = supabase.table("face_embeddings").delete().eq("id", face_id).execute()
     return bool(res.data)
+
