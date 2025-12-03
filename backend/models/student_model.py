@@ -2,7 +2,7 @@
 Handles the Students model using Supabase. Provides CRUD operations and lookups
 for student info, for use in API and admin modules. Uses supabase_client.
 """
-from ..supabase_client import supabase
+from supabase_client import supabase
 from typing import Optional
 
 def create_student(data: dict) -> dict:
@@ -34,3 +34,4 @@ def get_student_by_email(email: str) -> Optional[dict]:
     """Fetch student by email address."""
     res = supabase.table("students").select("*").eq("email", email).single().execute()
     return res.data if res.data else None
+
