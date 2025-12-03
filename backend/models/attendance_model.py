@@ -2,7 +2,7 @@
 Handles Attendance model for attendance system. Manages marking, fetching by
 student/class/date/subject, and updating/deleting attendance using Supabase.
 """
-from ..supabase_client import supabase
+from supabase_client import supabase
 from typing import Optional, List
 
 def mark_attendance(data: dict) -> dict:
@@ -34,3 +34,4 @@ def delete_attendance(attendance_id: str) -> bool:
     """Delete an attendance record by id."""
     res = supabase.table("attendance").delete().eq("id", attendance_id).execute()
     return bool(res.data)
+
