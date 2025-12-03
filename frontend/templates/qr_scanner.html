@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Scanner</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container qr-scanner-container">
+    <h2>QR Attendance Scanner</h2>
+    <!-- Video Preview -->
+    <section id="videoSection">
+      <video id="scannerVideo" width="320" height="240" autoplay></video>
+    </section>
+    <!-- Scan Controls -->
+    <section id="scannerControls">
+      <button id="startScanBtn" class="btn">Start Scanning</button>
+    </section>
+    <!-- Scan Result/Alerts -->
+    <div id="scanResult"></div>
+    <div id="scanError" class="alert" style="display:none;"></div>
+  </div>
+  <script src="../static/js/qr.js"></script>
+</body>
+</html>

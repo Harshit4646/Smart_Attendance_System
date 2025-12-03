@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your QR Code</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container qr-container">
+    <h2>Your Attendance QR Code</h2>
+    <section id="qrSection">
+      <div id="qrImageContainer"><!-- QR image will be inserted here --></div>
+      <button id="downloadQRBtn" class="btn">Download QR Code</button>
+      <p class="qr-instructions">
+        Present this QR code to your faculty to mark attendance. Do not share with others.
+      </p>
+    </section>
+  </div>
+  <script src="../static/js/qr.js"></script>
+</body>
+</html>

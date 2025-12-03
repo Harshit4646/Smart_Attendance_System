@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Face</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container face-register">
+    <h2>Register Your Face</h2>
+    <!-- Webcam or Upload Option -->
+    <section id="faceCaptureSection">
+      <video id="webcam" width="320" height="240" autoplay></video>
+      <input type="file" id="faceUpload" accept="image/*">
+    </section>
+    <!-- Register Button -->
+    <button id="registerFaceBtn" class="btn">Register Face</button>
+    <div id="faceRegisterAlert" class="alert" style="display:none;"></div>
+    <p class="face-instructions">
+      Please ensure your face is clearly visible. You may upload a photo or use your webcam. Face registration is required for face-based attendance.
+    </p>
+  </div>
+  <script src="../static/js/face.js"></script>
+</body>
+</html>

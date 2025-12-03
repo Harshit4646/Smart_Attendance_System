@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container dashboard-container">
+    <h2>Welcome, <span id="studentName">Student</span></h2>
+    <!-- Profile Info -->
+    <div id="profileSection"></div>
+    <!-- Attendance Summary -->
+    <section id="attendanceSummary">
+      <h3>Attendance Summary</h3>
+      <table id="subjectAttendanceTable">
+        <thead>
+          <tr><th>Subject</th><th>Attendance %</th></tr>
+        </thead>
+        <tbody><!-- Filled by JS --></tbody>
+      </table>
+    </section>
+    <!-- Day-wise Attendance Table -->
+    <section id="daywiseAttendance">
+      <h3>Your Daily Attendance</h3>
+      <table id="dailyAttendanceTable">
+        <thead>
+          <tr><th>Date</th><th>Subject</th><th>Status</th></tr>
+        </thead>
+        <tbody><!-- Filled by JS --></tbody>
+      </table>
+    </section>
+    <!-- Actions: Download/QR/Face -->
+    <div class="actions">
+      <button id="downloadCSVBtn" class="btn">Download Attendance CSV</button>
+      <button id="qrDownloadBtn" class="btn">Download QR Code</button>
+      <a href="face_register.html" id="faceRegisterLink">Register Face</a>
+    </div>
+  </div>
+  <script src="../static/js/attendance.js"></script>
+</body>
+</html>

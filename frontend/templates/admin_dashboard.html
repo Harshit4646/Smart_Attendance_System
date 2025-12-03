@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container admin-dashboard">
+    <h2>Admin Dashboard</h2>
+    <nav>
+      <a href="analytics.html">View Attendance Analytics</a>
+    </nav>
+    <!-- Students CRUD Section -->
+    <section id="manageStudents">
+      <h3>Manage Students</h3>
+      <button id="addStudentBtn" class="btn">Add Student</button>
+      <table id="studentsTable">
+        <thead><tr><th>Roll No</th><th>Name</th><th>Email</th><th>Class</th><th>Actions</th></tr></thead>
+        <tbody><!-- Dynamically filled --></tbody>
+      </table>
+    </section>
+    <!-- Faculty CRUD Section -->
+    <section id="manageFaculty">
+      <h3>Manage Faculty</h3>
+      <button id="addFacultyBtn" class="btn">Add Faculty</button>
+      <table id="facultyTable">
+        <thead><tr><th>Name</th><th>Email</th><th>Actions</th></tr></thead>
+        <tbody><!-- Dynamically filled --></tbody>
+      </table>
+    </section>
+    <!-- Classes CRUD Section -->
+    <section id="manageClasses">
+      <h3>Manage Classes</h3>
+      <button id="addClassBtn" class="btn">Add Class</button>
+      <table id="classesTable">
+        <thead><tr><th>Class Name</th><th>Department</th><th>Semester</th><th>Actions</th></tr></thead>
+        <tbody><!-- Dynamically filled --></tbody>
+      </table>
+    </section>
+    <!-- Subjects CRUD Section -->
+    <section id="manageSubjects">
+      <h3>Manage Subjects</h3>
+      <button id="addSubjectBtn" class="btn">Add Subject</button>
+      <table id="subjectsTable">
+        <thead><tr><th>Subject</th><th>Class</th><th>Faculty</th><th>Actions</th></tr></thead>
+        <tbody><!-- Dynamically filled --></tbody>
+      </table>
+    </section>
+  </div>
+  <script src="../static/js/analytics.js"></script>
+</body>
+</html>

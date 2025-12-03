@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Analytics</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container analytics-dashboard">
+    <h2>Attendance Analytics</h2>
+    <!-- Summary Section -->
+    <section id="attendanceSummary">
+      <h3>Attendance Overview</h3>
+      <div id="attendancePercent"></div>
+    </section>
+    <!-- Charts Section -->
+    <section id="chartsSection">
+      <h3>Trends & Comparisons</h3>
+      <canvas id="dailyTrendChart"></canvas>
+      <canvas id="subjectChart"></canvas>
+      <canvas id="classChart"></canvas>
+    </section>
+    <!-- At-Risk Students -->
+    <section id="atRiskSection">
+      <h3>Students &lt; 75% Attendance</h3>
+      <table id="atRiskTable">
+        <thead><tr><th>Name</th><th>Roll No</th><th>% Attendance</th></tr></thead>
+        <tbody><!-- Filled by JS --></tbody>
+      </table>
+    </section>
+    <div class="actions">
+      <button id="downloadAnalyticsCSV" class="btn">Download Analytics CSV</button>
+    </div>
+  </div>
+  <script src="../static/js/analytics.js"></script>
+</body>
+</html>

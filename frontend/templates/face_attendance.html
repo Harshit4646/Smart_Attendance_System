@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Attendance</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container face-attendance">
+    <h2>Face Recognition Attendance</h2>
+    <!-- Webcam Streaming Section -->
+    <section id="faceAttendanceCamera">
+      <video id="attendanceWebcam" width="320" height="240" autoplay></video>
+      <div id="cameraControls">
+        <button id="startFaceAttendance" class="btn">Start</button>
+        <button id="stopFaceAttendance" class="btn">Stop</button>
+      </div>
+    </section>
+    <!-- Live Attendance List -->
+    <section id="liveAttendanceList">
+      <h3>Recognized Students (Auto-Marked)</h3>
+      <table id="recognizedStudentsTable">
+        <thead><tr><th>Name</th><th>Roll No</th><th>Status</th><th>Time</th></tr></thead>
+        <tbody><!-- Real-time updates by JS --></tbody>
+      </table>
+    </section>
+    <!-- Error/Success Alerts -->
+    <div id="faceAttendanceAlert" class="alert" style="display:none;"></div>
+  </div>
+  <script src="../static/js/face.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+flask
+supabase
+psycopg2-binary
+DeepFace
+opencv-python
+numpy
+qrcode
+python-dotenv

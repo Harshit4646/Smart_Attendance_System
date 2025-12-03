@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container dashboard-container">
+    <h2>Welcome, <span id="facultyName">Faculty</span></h2>
+    <!-- Profile Info -->
+    <div id="facultyProfileSection"></div>
+    <!-- Assigned Classes -->
+    <section id="assignedClasses">
+      <h3>Your Classes</h3>
+      <select id="classSelect"><option>Select a class</option></select>
+    </section>
+    <!-- Attendance Actions -->
+    <section id="attendanceActions">
+      <button id="openQRScanner" class="btn">Open QR Scanner</button>
+      <button id="startFaceAttendance" class="btn">Start Face Attendance</button>
+    </section>
+    <!-- Daily Attendance Table -->
+    <section id="classAttendance">
+      <h3>Class Attendance</h3>
+      <input type="date" id="attendanceDate">
+      <button id="fetchAttendance" class="btn">View Attendance</button>
+      <table id="facultyAttendanceTable">
+        <thead>
+          <tr><th>Student</th><th>Subject</th><th>Status</th><th>Time</th></tr>
+        </thead>
+        <tbody><!-- Filled by JS --></tbody>
+      </table>
+    </section>
+    <div class="actions">
+      <button id="exportFacultyCSV" class="btn">Export CSV</button>
+    </div>
+  </div>
+  <script src="../static/js/attendance.js"></script>
+  <script src="../static/js/qr.js"></script>
+  <script src="../static/js/face.js"></script>
+</body>
+</html>
