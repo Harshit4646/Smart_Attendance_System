@@ -1,12 +1,16 @@
 """
 Routes for admin module: CRUD for all tables, analytics access.
+Also auto-creates Supabase Auth users when adding students/faculty.
 """
 from flask import Blueprint, jsonify, request
+import secrets
+
 from models.student_model import create_student, get_all_students, get_student_by_id, update_student, delete_student
 from models.faculty_model import create_faculty, get_all_faculty, get_faculty_by_id, update_faculty, delete_faculty
 from models.class_model import create_class, get_all_classes, get_class_by_id, update_class, delete_class
 from models.subject_model import create_subject, get_all_subjects, get_subject_by_id, update_subject, delete_subject
 from models.attendance_model import get_attendance_by_student
+from supabase_client import supabase_admin
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -16,9 +20,28 @@ def students():
     if request.method == 'GET':
         return jsonify({"students": get_all_students()})
     elif request.method == 'POST':
-        data = request.json
+        data = request.json or {}
+        email = data.get("email")
+        if not email:
+            return jsonify({"error": "Email is required to create a student."}), 400
+
+        # Create Supabase Auth user
+        password = data.get("password") or secrets.token_urlsafe(8)
+        try:
+            supabase_admin.auth.admin.create_user(
+                {
+                    "email": email,
+                    "password": password,
+                    "email_confirm": True,
+                }
+            )
+        except Exception as e:  # noqa: BLE001
+            # Continue even if user exists or admin API not available
+            print("Auth admin create_user failed (student):", e)
+
         created = create_student(data)
-        return jsonify({"student": created}), 201
+        # Return temp password so admin can share it with the student (not stored in DB)
+        return jsonify({"student": created, "temp_password": password}), 201
 
 @admin_bp.route("/students/<student_id>", methods=["GET", "PUT", "DELETE"])
 def manage_student(student_id):
@@ -39,9 +62,25 @@ def faculty():
     if request.method == 'GET':
         return jsonify({"faculty": get_all_faculty()})
     elif request.method == 'POST':
-        data = request.json
+        data = request.json or {}
+        email = data.get("email")
+        if not email:
+            return jsonify({"error": "Email is required to create a faculty user."}), 400
+
+        password = data.get("password") or secrets.token_urlsafe(8)
+        try:
+            supabase_admin.auth.admin.create_user(
+                {
+                    "email": email,
+                    "password": password,
+                    "email_confirm": True,
+                }
+            )
+        except Exception as e:  # noqa: BLE001
+            print("Auth admin create_user failed (faculty):", e)
+
         created = create_faculty(data)
-        return jsonify({"faculty": created}), 201
+        return jsonify({"faculty": created, "temp_password": password}), 201
 
 @admin_bp.route("/faculty/<faculty_id>", methods=["GET", "PUT", "DELETE"])
 def manage_faculty(faculty_id):
@@ -113,4 +152,3 @@ def analytics():
         "at_risk_count": sum(1 for s in students if 0),  # Stub
     }
     return jsonify({"analytics": data})
-
